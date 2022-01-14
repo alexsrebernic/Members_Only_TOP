@@ -1,0 +1,10 @@
+extends layout 
+block content 
+     div.container-content
+        div 
+            h1 Sign Up
+        form(action="").form-sign-up
+            input(type="text" name="name-input" placeholder="Enter username")
+            input(type="password" name="password-input-first" placeholder="Enter password") 
+            input(type="password" name="password-input-second" placeholder="Enter password again") 
+            input(type="submit" value="Sign Up").submit-sign-up

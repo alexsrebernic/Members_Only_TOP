@@ -1,1 +1,194 @@
-/* No CSS *//*# sourceMappingURL=style.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #ebebeb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body .container {
+  border-radius: 5px;
+  margin-top: 20px;
+  background-color: white;
+  width: 45%;
+  box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.65);
+}
+
+body .container header {
+  padding: 15px 5px 15px 5px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid #ce973e;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body .container header a {
+  color: black;
+  text-decoration: none;
+}
+
+body .container header .title {
+  font-weight: 700;
+  font-size: 25px;
+  padding-left: 20px;
+}
+
+body .container header .title .middletitle {
+  color: #ce973e;
+}
+
+body .container header .user-entry .left-a {
+  border-right: 1px solid #ce973e;
+}
+
+body .container header .user-entry a {
+  padding: 0px 15px 0px 15px;
+  color: black;
+  text-decoration: none;
+}
+
+body .container .container-content {
+  padding: 15px 25px 0px 25px;
+}
+
+body .container .container-content .welcome-messages-board {
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+body .container .container-content .welcome-messages-board p {
+  padding: 15px 0px 5px 0px;
+  width: 70%;
+}
+
+body .container .container-content .container-messages {
+  padding-bottom: 40px;
+}
+
+body .container .container-content .container-messages .input-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .container .container-content .container-messages .input-message .img-user {
+  width: 5%;
+}
+
+body .container .container-content .container-messages .input-message .img-user div {
+  border: 1px solid black;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+body .container .container-content .container-messages .input-message form {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .container .container-content .container-messages .input-message form .title-input {
+  height: 3em;
+  width: 60%;
+  margin-bottom: 10px;
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+body .container .container-content .container-messages .input-message form .details-input {
+  height: 5em;
+  width: 70%;
+  margin-bottom: 10px;
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+
+body .container .container-content .container-messages .input-message form .submit-input {
+  cursor: pointer;
+  height: 3em;
+  width: 10%;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background-color: #ce973e;
+}
+
+body .container footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-top: 1px solid #ebebeb;
+  padding: 20px 25px 0px 25px;
+  margin: 10px 0px 10px 0px;
+}
+
+body .form-sign-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .form-sign-up input {
+  padding-left: 10px;
+  width: 60%;
+  height: 3em;
+  margin-top: 10px;
+  background-color: #ebebeb;
+  border: none;
+  border-radius: 5px;
+}
+
+body .form-sign-up .submit-sign-up {
+  width: 10%;
+  background-color: #ce973e;
+  color: white;
+  padding: 0;
+}
+/*# sourceMappingURL=style.css.map */

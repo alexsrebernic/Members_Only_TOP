@@ -4,4 +4,23 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    div.container
+      header 
+        a(href="/") 
+          div.title
+            span.middletitle .
+            span members
+            span.middletitle -
+            span only
+        div.user-entry
+          a(href="/").left-a Home
+          a(href='/sign_up').left-a Sign Up
+          a(href="/log_in") Log In
+      block content
+      footer     
+          span Alex Srebernic 2022
+          a(href="https://github.com/alexsrebernic") Github 
+          a(href="https://www.linkedin.com/in/alex-srebernic-201427213/") Linkedin
+
+  
+

@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  div.container-content
+    div.welcome-messages-board 
+      h1 Welcome to the Message Board! 
+      p Here you can post messages (if you are a member!), and see what other people message's (if you are a member!)
+      br
+    div.container-messages
+      div.input-message
+        div.img-user
+          div.example-image
+        form(method="POST" action="").form-message
+          input(type="text" name="title-message" placeholder="Title...").title-input 
+          input(type="text" name="details-message" placeholder="Details...").details-input
+          input(type="submit" value="Submit").submit-input
+
