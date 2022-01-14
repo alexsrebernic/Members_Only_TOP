@@ -6,6 +6,7 @@ var userSchema = new Schema(
   {
     username: {type: String, required: true, maxLength: 30},
     password: {type:String,required:true},
+    profileImg:{type:String,required:true},
     isMember: {type:Boolean,required:true}
   }
 );
