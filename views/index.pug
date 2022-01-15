@@ -66,6 +66,13 @@ block content
               h3.no-messages No messages...
 
         else 
+          div.input-message
+            div.img-user
+              img(src=`${user.profileImg}`, alt="").example-image
+            form(method="POST" action="/").form-message
+              input(type="text" name="title" placeholder="Title...").title-input 
+              input(type="text" name="details" placeholder="Details...").details-input
+              input(type="submit" value="Submit").submit-input
           div.container-messages
             if (array_of_messages.length > 0)
               each message in array_of_messages
