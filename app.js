@@ -7,6 +7,8 @@ var logger = require('morgan');
 const session = require("express-session");
 const passport = require("passport");
 const flash = require('connect-flash');
+const dotenv = require('dotenv')
+dotenv.config()
 
 var mongoDB = 'mongodb+srv://alexsrebernic:13312@cluster0.jlxai.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});

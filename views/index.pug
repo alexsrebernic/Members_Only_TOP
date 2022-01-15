@@ -3,23 +3,73 @@ extends layout
 block content
   div.container-content
     div.welcome-messages-board 
-      h1 Welcome to the Message Board! 
-      p Here you can post messages, and see who is posting , but to do that you have to be a member, and to become a member you have to enter te secret password.
+      if (user)
+        h1 Welcome #{user.username} to the Message Board! 
+      else 
+        h1 Welcome to the Message Board! 
+      p Here you can post messages, and see who is posting , but to do that you have to be a member, and to become a member you have to enter the secret password.
       br
-    div.container-messages
+    div.container-messages-board
       if (user)
         if (user.isMember)
           div.input-message
             div.img-user
-              div.example-image
-            form(method="POST" action="").form-message
-              input(type="text" name="title-message" placeholder="Title...").title-input 
-              input(type="text" name="details-message" placeholder="Details...").details-input
+              img(src=`${user.profileImg}`, alt="").example-image
+            form(method="POST" action="/").form-message
+              input(type="text" name="title" placeholder="Title...").title-input 
+              input(type="text" name="details" placeholder="Details...").details-input
               input(type="submit" value="Submit").submit-input
-          div.messages
+          div.container-messages
+            if (array_of_messages.length > 0)
+              each message in array_of_messages
+                div.message
+                  div.image-message
+                    img(src=`${message.user.profileImg}`, alt="")
+                  div.content-message
+                    div.header-message
+                      h4= message.user.username
+                      span= message.date
+                    div.container-content-message
+                      h3= message.title
+                      div.container-details-message
+                        p= message.details
+            else 
+              h3.no-messages No messages...
+
         else 
-          div.messages
-            span User but no member
+          div.container-messages
+            if (array_of_messages.length > 0)
+              each message in array_of_messages
+                div.message
+                  div.image-message
+                    img(src=`https://ui-avatars.com/api/?name=Anonymus&background=random&size=35&rounded=true`, alt="")
+                  div.content-message
+                    div.header-message
+                      h4= Anonymus
+                      span= message.date
+                    div.container-content-message
+                      h3= message.title
+                      div.container-details-message
+                        p= message.details
+            else 
+              h3.no-messages No messages...
+
       else 
-        span Not user
+        div.container-messages 
+            if (array_of_messages.length > 0)
+              each message in array_of_messages
+                div.message
+                  div.image-message
+                    img(src=`https://ui-avatars.com/api/?name=Anonymus&background=random&size=35&rounded=true`, alt="")
+                  div.content-message
+                    div.header-message
+                      h4 Anonymus
+                      span= message.date
+                    div.container-content-message
+                      h3= message.title
+                      div.container-details-message
+                        p= message.details
+            else 
+              h3.no-messages No messages...
+          
 

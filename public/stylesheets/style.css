@@ -81,34 +81,39 @@ body .container .container-content .welcome-messages-board {
   border-bottom: 1px solid #ebebeb;
 }
 
+body .container .container-content .welcome-messages-board h1 {
+  word-wrap: break-word;
+}
+
 body .container .container-content .welcome-messages-board p {
   padding: 15px 0px 5px 0px;
   width: 70%;
 }
 
-body .container .container-content .container-messages {
+body .container .container-content .container-messages-board {
   padding-bottom: 40px;
 }
 
-body .container .container-content .container-messages .input-message {
+body .container .container-content .container-messages-board .input-message {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body .container .container-content .container-messages .input-message .img-user {
+body .container .container-content .container-messages-board .input-message .img-user {
   width: 5%;
+  margin-top: 2px;
 }
 
-body .container .container-content .container-messages .input-message .img-user div {
+body .container .container-content .container-messages-board .input-message .img-user .example-img {
   border: 1px solid black;
   height: 35px;
   width: 35px;
   border-radius: 50%;
-  margin-top: 3px;
+  margin-top: 8px;
 }
 
-body .container .container-content .container-messages .input-message form {
+body .container .container-content .container-messages-board .input-message form {
   width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -117,9 +122,12 @@ body .container .container-content .container-messages .input-message form {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 15px;
 }
 
-body .container .container-content .container-messages .input-message form .title-input {
+body .container .container-content .container-messages-board .input-message form .title-input {
   height: 3em;
   width: 60%;
   margin-bottom: 10px;
@@ -129,7 +137,7 @@ body .container .container-content .container-messages .input-message form .titl
   padding-left: 10px;
 }
 
-body .container .container-content .container-messages .input-message form .details-input {
+body .container .container-content .container-messages-board .input-message form .details-input {
   height: 5em;
   width: 70%;
   margin-bottom: 10px;
@@ -139,7 +147,7 @@ body .container .container-content .container-messages .input-message form .deta
   padding-left: 10px;
 }
 
-body .container .container-content .container-messages .input-message form .submit-input {
+body .container .container-content .container-messages-board .input-message form .submit-input {
   cursor: pointer;
   height: 3em;
   width: 10%;
@@ -148,6 +156,44 @@ body .container .container-content .container-messages .input-message form .subm
   border: none;
   color: white;
   background-color: #ce973e;
+}
+
+body .container .container-content .container-messages-board .container-messages .message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 10px;
+  min-height: 8em;
+  border-bottom: 1px solid #ebebeb;
+}
+
+body .container .container-content .container-messages-board .container-messages .message .image-message {
+  width: 5%;
+}
+
+body .container .container-content .container-messages-board .container-messages .message .content-message {
+  width: 95%;
+}
+
+body .container .container-content .container-messages-board .container-messages .message .content-message .header-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 2.2em;
+}
+
+body .container .container-content .container-messages-board .container-messages .message .content-message .header-message span {
+  color: #6d6d6d;
+}
+
+body .container .container-content .container-messages-board .container-messages .no-messages {
+  color: #6d6d6d;
 }
 
 body .container footer {

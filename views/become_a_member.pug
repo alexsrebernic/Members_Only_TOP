@@ -1,0 +1,11 @@
+extends layout 
+block content 
+ div.container-content
+        div 
+            h1 Become a member
+        if (error_message)   
+            div.container-error-message
+                    span(class="error-message")= error_message  
+        form(method="POST" action="").form-sign-up
+            input(type="password" name="password_become_a_member" placeholder="Enter password") 
+            input(type="submit" value="Log in").submit-sign-up

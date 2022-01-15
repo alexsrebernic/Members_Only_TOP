@@ -2,21 +2,24 @@ const User = require("../models/user")
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require('bcryptjs')
-const { body,validationResult } = require('express-validator');
-
+const { passwordStrength } = require('check-password-strength')
+var dotenv = require('dotenv')
+dotenv.config()
 
 exports.user_sign_up_get = function (req,res,next){
     res.render('sign_up',{title:".members-only: Sign Up"})
 }
 
 exports.user_sign_up_post = function(req,res,next){
-    if(req.body.username.length >= 25) return res.status(400).render('sign_up',{title:".members-only: Sign Up",error_message:"The username is too long!"})
+  const passwordChecker = passwordStrength(req.body.password)
+  if(passwordChecker.id === 0 ) return res.render('sign_up',{title:".members-only: Sign Up",error_message:`The password is ${passwordChecker.value}!`})
+  if(req.body.username.length >= 25) return render('sign_up',{title:".members-only: Sign Up",error_message:"The username is too long!"})
     User.findOne({username:req.body.username},function (err,user){
         if(err){
             next(err)
         }
         if(user){
-             return res.status(400).render('sign_up',{title:".members-only: Sign Up",error_message:"The username is already used!"})
+             return res.render('sign_up',{title:".members-only: Sign Up",error_message:"The username is already used!"})
         } else {
             if(req.body.password === req.body.passwordreconfirm){
               bcrypt.hash(req.body.password, 10, (err, hashedPassword) => {
@@ -26,9 +29,9 @@ exports.user_sign_up_post = function(req,res,next){
                 const user = new User({
                   username: req.body.username,
                   password: hashedPassword,
-                  messages: [],
-                  profileImg: `https://ui-avatars.com/api/?name=${req.body.username}`,
-                  isMember: false
+                  profileImg: `https://ui-avatars.com/api/?name=${req.body.username}&size=35&background=random&rounded=true`,
+                  isMember: false,
+                  isAdmin: false
                 }).save(err => {
                   if (err) { 
                     return next(err);
@@ -38,7 +41,7 @@ exports.user_sign_up_post = function(req,res,next){
               });
                
             } else {
-                return res.status(400).render('sign_up',{title:".members-only: Sign Up",error_message:"The password's must be equal!"})
+                return res.render('sign_up',{title:".members-only: Sign Up",error_message:"The password's must be equal!"})
             }
         }
     })
@@ -57,7 +60,30 @@ exports.user_log_out_get = function(req,res){
     res.redirect("/");
 
 }
-
+exports.user_become_a_member_get = function(req,res){
+  console.log(req.user)
+  res.render('become_a_member' ,{title:".members-only: Become a member",message:req.flash().error, user:req.user})
+}
+exports.user_become_a_member_post = function(req,res,next){
+  if(req.body.password_become_a_member === process.env.USERNAME){
+    if(req.user.isMember) return res.render('become_a_member',{title:".members-only: Sign Up",error_message:"You are already a member!",user:req.user})
+    let userUpdated = new User({
+      _id:req.user.id,
+      username: req.user.username,
+      password: req.user.password,
+      profileImg: req.user.profileImg,
+      isMember: true,
+      isAdmin:req.user.isAdmin
+    })
+    User.findByIdAndUpdate(req.user.id,userUpdated,{},function(err,user){
+      if (err) { return next(err); }
+      console.log(user)
+      return res.redirect('/');
+    })
+  } else {
+    return res.render('become_a_member',{title:".members-only: Sign Up",error_message:"Wrong password!",user:req.user})
+  }
+}
 
 passport.use(
   new LocalStrategy((username, password, done) => {
