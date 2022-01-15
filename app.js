@@ -8,7 +8,6 @@ const session = require("express-session");
 const passport = require("passport");
 const flash = require('connect-flash');
 const dotenv = require('dotenv')
-var helmet = require('helmet');
 var compression = require('compression');
 dotenv.config()
 
@@ -34,10 +33,7 @@ app.use(session({
   secret: "cats",
    resave: false, 
    saveUninitialized: true,
-  cookie: {
-    secure: true,
-    httpOnly: true,
-  } }));
+ }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
