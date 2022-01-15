@@ -66,7 +66,7 @@ exports.user_become_a_member_get = function(req,res){
   res.render('become_a_member' ,{title:".members-only: Become a member",message:req.flash().error, user:req.user})
 }
 exports.user_become_a_member_post = function(req,res,next){
-  if(req.body.password_become_a_member === process.env.USERNAME){
+  if(req.body.password_become_a_member === process.env.PASSWORD_MEMBER){
     if(req.user.isMember) return res.render('become_a_member',{title:".members-only: Become a member",error_message:"You are already a member!",user:req.user})
     let userUpdated = new User({
       _id:req.user.id,
@@ -89,7 +89,7 @@ exports.user_become_a_admin_get = function(req,res,next){
 }
 
 exports.user_become_admin_post = function(req,res,next){
-  if(req.body.password_become_a_admin === process.env.USERNAME){
+  if(req.body.password_become_a_admin === process.env.PASSWORD_ADMIN){
     if(req.user.isAdmin) return res.render('become_a_admin',{title:".members-only: Become a admin",error_message:"You are already a admin!",user:req.user})
     let userUpdated = new User({
       _id:req.user.id,
