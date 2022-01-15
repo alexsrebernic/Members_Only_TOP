@@ -9,6 +9,8 @@ const passport = require("passport");
 const flash = require('connect-flash');
 const dotenv = require('dotenv')
 const urlDb = require('../members-only-top/dbPassword')
+var helmet = require('helmet');
+var compression = require('compression');
 dotenv.config()
 
 var mongoDB = urlDb
@@ -28,14 +30,22 @@ app.set('view engine', 'pug');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
+app.use(session({ 
+  secret: "cats",
+   resave: false, 
+   saveUninitialized: true,
+  cookie: {
+    secure: true,
+    httpOnly: true,
+  } }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(compression()); 
+app.disable('x-powered-by');
 app.use('/', indexRouter);
-
 
 
 
