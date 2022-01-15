@@ -11,7 +11,36 @@ block content
       br
     div.container-messages-board
       if (user)
-        if (user.isMember)
+        if (user.isAdmin)
+          div.input-message
+            div.img-user
+              img(src=`${user.profileImg}`, alt="").example-image
+            form(method="POST" action="/").form-message
+              input(type="text" name="title" placeholder="Title...").title-input 
+              input(type="text" name="details" placeholder="Details...").details-input
+              input(type="submit" value="Submit").submit-input
+          div.container-messages
+            if (array_of_messages.length > 0)
+              each message in array_of_messages
+                div.message
+                  div.image-message
+                    img(src=`${message.user.profileImg}`, alt="")
+                  div.content-message
+                    div.header-message
+                      h4= message.user.username
+                      span= message.date
+                    div.container-content-message
+                      h3= message.title
+                      div.container-details-message
+                        p= message.details
+                      div.container-trash
+                        a(href=`/remove_message/${message.id}`) 
+                          svg.h-5.w-5(xmlns='http://www.w3.org/2000/svg' viewbox='0 0 20 20' fill='currentColor')
+                            path(fill-rule='evenodd' d='M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z' clip-rule='evenodd')
+  
+            else 
+              h3.no-messages No messages...
+        else if (user.isMember)
           div.input-message
             div.img-user
               img(src=`${user.profileImg}`, alt="").example-image
@@ -45,7 +74,7 @@ block content
                     img(src=`https://ui-avatars.com/api/?name=Anonymus&background=random&size=35&rounded=true`, alt="")
                   div.content-message
                     div.header-message
-                      h4= Anonymus
+                      h4 Anonymus
                       span= message.date
                     div.container-content-message
                       h3= message.title

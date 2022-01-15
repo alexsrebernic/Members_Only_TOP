@@ -139,6 +139,18 @@ body {
                                 }
                             }
                         }
+                        .container-trash{
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+                            a {
+                                color: black;
+                            }
+                            svg {
+                                cursor: pointer;
+                                width: 20px;
+                            }
+                        }  
                     }
                     .no-messages{
                         color: #6d6d6d;

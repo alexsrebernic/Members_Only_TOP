@@ -8,9 +8,10 @@ const session = require("express-session");
 const passport = require("passport");
 const flash = require('connect-flash');
 const dotenv = require('dotenv')
+const urlDb = require('../members-only-top/dbPassword')
 dotenv.config()
 
-var mongoDB = 'mongodb+srv://alexsrebernic:13312@cluster0.jlxai.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+var mongoDB = urlDb
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));

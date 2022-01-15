@@ -192,6 +192,27 @@ body .container .container-content .container-messages-board .container-messages
   color: #6d6d6d;
 }
 
+body .container .container-content .container-messages-board .container-messages .message .container-trash {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .container .container-content .container-messages-board .container-messages .message .container-trash a {
+  color: black;
+}
+
+body .container .container-content .container-messages-board .container-messages .message .container-trash svg {
+  cursor: pointer;
+  width: 20px;
+}
+
 body .container .container-content .container-messages-board .container-messages .no-messages {
   color: #6d6d6d;
 }

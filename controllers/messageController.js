@@ -26,9 +26,18 @@ exports.message_board_post = function(req,res,next){
         user: req.user.id,
         date: moment().format('MMMM Do YYYY, h:mm:ss a') 
      }).save( err => {
-         if (err) next(err)
+         console.log(err)
         res.redirect("/")
      })
 
     }
+}
+exports.message_board_remove = function(req,res,next){
+    Message.findByIdAndRemove(req.params.id,{},function(err,docs){
+        if(err){
+           return next(err)
+        }
+        res.redirect('/')
+
+    })
 }
