@@ -6,7 +6,7 @@ block content
         if (error_message)   
             div.container-error-message
                 span(class="error-message")= error_message      
-        form(method="POST" action="").form-sign-up
+        form(method="POST" action="/sign_up").form-sign-up
             input(type="text" name="username" placeholder="Enter username" required)
             input(type="password" name="password" placeholder="Enter password" required) 
             input(type="password" name="passwordreconfirm" placeholder="Enter password again" required) 

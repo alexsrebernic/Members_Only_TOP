@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const session = require("express-session");
 const passport = require("passport");
-
+const flash = require('connect-flash');
 
 var mongoDB = 'mongodb+srv://alexsrebernic:13312@cluster0.jlxai.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
@@ -28,10 +28,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use('/', indexRouter);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

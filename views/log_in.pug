@@ -3,7 +3,11 @@ block content
    div.container-content
         div 
             h1 Log In
-        form(method="POST" action="").form-sign-up
+        if (message)   
+            div.container-error-message
+                each error in message
+                    span(class="error-message")= error  
+        form(method="POST" action="/log_in").form-sign-up
             input(type="text" name="username" placeholder="Enter username")
             input(type="password" name="password" placeholder="Enter password") 
             input(type="submit" value="Log in").submit-sign-up

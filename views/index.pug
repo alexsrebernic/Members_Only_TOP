@@ -4,7 +4,7 @@ block content
   div.container-content
     div.welcome-messages-board 
       h1 Welcome to the Message Board! 
-      p Here you can post messages (if you are a member!), and see what other people message's (if you are a member!)
+      p Here you can post messages, and see who is posting , but to do that you have to be a member, and to become a member you have to enter te secret password.
       br
     div.container-messages
       if (user)
@@ -16,9 +16,10 @@ block content
               input(type="text" name="title-message" placeholder="Title...").title-input 
               input(type="text" name="details-message" placeholder="Details...").details-input
               input(type="submit" value="Submit").submit-input
-        div.messages
+          div.messages
         else 
-          span= user.username 
+          div.messages
+            span User but no member
       else 
-        span = "Hello"
+        span Not user
 
