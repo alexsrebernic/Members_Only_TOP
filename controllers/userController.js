@@ -46,6 +46,11 @@ exports.user_log_in_post =  passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/"
 });
+exports.user_log_out_get = function(req,res){
+    console.log(req.user)
+    req.logout();
+    res.redirect("/");
+}
 passport.use(
     new LocalStrategy((username, password, done) => {
       User.findOne({ username: username }, (err, user) => {
