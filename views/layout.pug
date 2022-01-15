@@ -12,15 +12,21 @@ html
             span members
             span.middletitle -
             span only
-        div.user-entry
-          a(href="/").left-a Home
-          a(href='/sign_up').left-a Sign Up
-          a(href="/log_in") Log In
-      block content
-      footer     
-          span Alex Srebernic 2022
-          a(href="https://github.com/alexsrebernic") Github 
-          a(href="https://www.linkedin.com/in/alex-srebernic-201427213/") Linkedin
+        if (!(user))
+          div.user-entry
+            a(href="/").left-a Home
+            a(href='/sign_up').left-a Sign Up
+            a(href="/log_in") Log In
+        else 
+          div.user-entry
+            a(href="/").left-a Home
+            a(href='/become_a_member').left-a Become a member
+            a(href="/log_out") Log Out
+        block content
+        footer     
+            span Alex Srebernic 2022
+            a(href="https://github.com/alexsrebernic") Github 
+            a(href="https://www.linkedin.com/in/alex-srebernic-201427213/") Linkedin
 
   
 

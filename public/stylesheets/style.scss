@@ -141,6 +141,21 @@ body {
             background-color: #ce973e;
             color: white;
             padding: 0;
+            cursor: pointer;
+        }
+        
+    }
+    .container-error-message {
+        margin: 5px 0px 5px 0px;
+        background-color: rgba($color: red, $alpha: 0.4);
+        width: 35%;
+        padding: 7px 4px 7px 4px;
+        border-radius: 5px;
+        text-align: center;
+        .error-message {
+            color: white;
+            border-radius: 5px;
         }
     }
+  
 }

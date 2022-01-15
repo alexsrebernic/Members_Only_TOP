@@ -190,5 +190,20 @@ body .form-sign-up .submit-sign-up {
   background-color: #ce973e;
   color: white;
   padding: 0;
+  cursor: pointer;
+}
+
+body .container-error-message {
+  margin: 5px 0px 5px 0px;
+  background-color: rgba(255, 0, 0, 0.4);
+  width: 35%;
+  padding: 7px 4px 7px 4px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+body .container-error-message .error-message {
+  color: white;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=style.css.map */
