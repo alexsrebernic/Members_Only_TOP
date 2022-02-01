@@ -9,5 +9,8 @@ In this app i learn to use:
 - .env
 - MongoDB
 - Mongoose   
+- Pug
+
+![](members-only.gif)
 
 [LIVE SERVER](https://glacial-reef-98320.herokuapp.com/)
