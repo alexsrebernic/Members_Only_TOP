@@ -19,5 +19,6 @@ In this app i learn to use:
 The steps to run this app locally are:  
 1. Clone,pull or download this repository.
 2. Open folder in code editor and change process.env.MONGODB_URI variable to your mongoDB url
-3. Run in terminal npm run devstart
-4. Go to http://localhost:3000
+3. Change variable process.env.PASSWORD_MEMBER and process.env.PASSWORD_ADMIN to anything you want
+4. Run in terminal npm run devstart
+5. Go to http://localhost:3000
