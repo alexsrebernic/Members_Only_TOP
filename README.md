@@ -18,5 +18,6 @@ In this app i learn to use:
 # Run app locally   
 The steps to run this app locally are:  
 1. Clone,pull or download this repository.
-2. Change process.env.MONGODB_URI variable to your mongoDB url
-3. run in terminal npm run devstart
+2. Open folder in code editor and change process.env.MONGODB_URI variable to your mongoDB url
+3. Run in terminal npm run devstart
+4. Go to http://localhost:3000
